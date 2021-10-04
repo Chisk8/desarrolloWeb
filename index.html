@@ -1,12 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi sitio</title>
+    <title>Mi masa corporal en otros palnetas</title>
 </head>
 <body>
-    Hola amigos este es mi sitio web siganme en @christopherdavideh
+    <h1>Sabias que tu peso es diferente en Marte o Jupiter</h1>
+
+    <script>
+
+        var masa = parseFloat(prompt("Cual es tu masa corporal:"));
+        var planeta = parseInt(prompt("Elige la opcion del planeta \n 1.Marte \n 2.Jupiter: "));
+        
+        var g_marte = 3.7;
+        var g_jupiter = 24.8;
+
+        if(planeta == 1)
+        {            
+            document.write("Tu masa en Marte es: " + calculo(g_marte, masa));
+        } 
+        else if(planeta == 2) 
+        {
+            document.write("Tu masa en Jupiter es: " + calculo(g_jupiter, masa));
+        } 
+        else
+        {
+            setTimeout(function() { alert("Escoge una opcion entre 1 y 2"); }, 500);
+            //window.location.href = "index.html";
+        }
+
+        function calculo(gravedad, peso){
+            var g_tierra = 9.8;
+            var peso_final = peso * gravedad /g_tierra;
+            return peso_final.toFixed(2);
+        }
+    </script>
 </body>
 </html>
